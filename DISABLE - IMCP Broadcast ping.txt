@@ -1,0 +1,41 @@
+How To Disable Ping Replies in Linux using icmp_echo_ignore_all
+by SATHIYAMOORTHY on JULY 9, 2010
+ 
+
+You may want to disable ping replies for many reasons, may be for a security reason, or to avoid network congestion.
+
+Someone can flood the network with ping -f as shown in “Ping Example 5” in our earlier Ping Tutorial article. If ping reply is disabled we can avoid this flooding.
+
+
+Disable ping reply Temporarily
+You can temporarily disable the ping reply using the following method.
+
+# echo "1" >  /proc/sys/net/ipv4/icmp_echo_ignore_all
+
+
+
+Please note that this setting will be erased after the reboot. To disable ping reply permanently (even after the reboot), follow the step mentioned below.
+
+Also, to enable the ping reply back, set the value to “0” as shown below.
+
+# echo "0" >  /proc/sys/net/ipv4/icmp_echo_ignore_all
+
+
+
+Disable ping reply Permanently
+You can permanently disable the ping reply using the following method.
+
+
+ 
+Step 1: Edit the sysctl.conf file and add the following line.
+
+net.ipv4.icmp_echo_ignore_all = 1
+Step 2: Execute sysctl -p to enforce this setting immediately.
+
+# sysctl -p
+The above command loads the sysctl settings from the sysctl.conf file.
+
+After the ping reply is disabled using one of the above method, when somebody tries to ping your machine they will end up waiting without getting a ping reply packet even when the machine is up and running.
+
+ 
+> Add your comment
