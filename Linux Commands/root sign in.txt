@@ -1,0 +1,4 @@
+sudo -i
+
+to become root user
+(password req.)

@@ -1,0 +1,14 @@
+
+Edit 
+/etc/resolv.conf:
+
+sudo vi /etc/resolv.conf
+
+If any nameserver lines appear, write down the IP addresses for future reference.
+
+Replace the nameserver lines with, or add, the following lines:
+
+For IPv4:
+
+nameserver 8.8.8.8
+nameserver 8.8.4.4
