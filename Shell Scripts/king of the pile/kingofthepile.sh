@@ -10,12 +10,15 @@ sudo apt-get install sed
 counter=1
 until [$counter -gt 10]
 do
+	Char1= $(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
+	space=" ";
+	Char2= $(cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1)
+	String= $Char1 $space
+	String= $String $Char2
 	echo nuggetname
 	read nugget
-	sudo touch $nugget.txt
-	echo we are gonna open the file $nugget.txt okay [y/n]
-	read $asmr
-	sudo gedit $nugget.txt
+	sudo cat > $nugget.txt
+	echo 
 END
 
 done
